@@ -15,7 +15,8 @@ consumer = KafkaConsumer(bootstrap_servers=conf['bootstrap_servers'],
                         max_poll_records=100,
                         fetch_max_bytes=1 * 1024 * 1024)
 
-print 'consumer start to consuming...'
+print ('consumer start to consuming...')
+
 consumer.subscribe((conf['topic_name'], ))
 for message in consumer:
-    print message.topic, message.offset, message.key, message.value, message.value, message.partition
+    print (message.topic, message.offset, message.key, message.value, message.partition)
